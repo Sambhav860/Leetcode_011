@@ -1,0 +1,21 @@
+class Solution {
+    public int sumRootToLeaf(TreeNode root) {
+        return dfs(root, 0);
+    }
+    private int dfs(TreeNode node, int currentVal) {
+        if (node == null) {
+            return 0;
+        }
+        
+        // Update value: currentVal * 2 + node.val
+        currentVal = (currentVal * 2) + node.val;
+        
+        // If leaf node, return the value
+        if (node.left == null && node.right == null) {
+            return currentVal;
+        }
+        
+        // Recurse
+        return dfs(node.left, currentVal) + dfs(node.right, currentVal);
+    }
+}
