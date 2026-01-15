@@ -1,0 +1,18 @@
+class Solution {
+    public int minimumOperations(int[] nums) {
+        int operations = 0;
+
+        for (int x : nums) {
+            int r = x % 3;
+
+            // If remainder is 1 or 2, it takes exactly 1 operation
+            if (r == 1 || r == 2) {
+                operations++;
+            }
+        }
+
+        return operations;
+    }
+}
+
+        
